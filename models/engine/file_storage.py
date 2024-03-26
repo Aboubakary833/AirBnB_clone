@@ -31,7 +31,7 @@ class FileStorage:
         """
         __json_repr = {}
         for k, v in self.__objects:
-            __json_repr[k] = v
+            __json_repr[k] = v.to_dict()
         with open(self.__file_path, 'w') as file:
             json.dump(__json_repr, file)
 
