@@ -8,38 +8,36 @@ import os
 class FileStorage:
     """FileStorage class
     """
+
     __file_path = "file.json"
     __objects = {}
 
-    def all(self) -> dict:
-        """Get all instance
-        Returns:
-        dict: Dict of all stored instances
-        """
+    def all(self):
+        """  returns the dictionary __objects """
         return self.__objects
 
     def new(self, obj):
-        """Sets in __objects the obj
-        Args:
-        obj (dict): Instance to be set
-        """
-        key = "{}.{}".format(obj.__class__.name, str(obj.id))
+        """sets in __objects the obj with key <obj class name>.id"""
+        """get key of the form <obj class name>.id"""
+        key = obj.__class__.__name__ + "." + str(obj.id)
         self.__objects[key] = obj
 
     def save(self):
         """Save json representation of instances in a file
         """
-        __json_repr = {}
-        for k in self.__objects:
-            __json_repr[k] = self.__objects[k].to_dict()
+        json_repr = {}
+        for key in self.__objects:
+            json_repr[key] = self.__objects[key].to_dict()
+
         with open(self.__file_path, 'w') as file:
-            json.dump(__json_repr, file)
+            json.dump(json_repr, file)
 
     def reload(self):
+        """Deserialize the JSON file"""
         try:
             with open(self.__file_path, 'r', encoding="UTF8") as file:
-                for k, v in json.load(file).items():
-                    value = eval(v["__class__"])(**v)
-                    self.__objects[k] = value
+                for key, value in json.load(file).items():
+                    attribute = eval(value["__class__"])(**value)
+                    self.__objects[key] = attribute
         except FileNotFoundError:
             pass
