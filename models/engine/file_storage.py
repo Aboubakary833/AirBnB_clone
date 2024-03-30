@@ -2,8 +2,13 @@
 """Filestorage"""
 
 import json
-import os
-
+from models.base_model import BaseModel
+from models.amenity import Amenity
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.user import User
 
 class FileStorage:
     """FileStorage class
@@ -20,7 +25,7 @@ class FileStorage:
         """sets in __objects the obj with key <obj class name>.id"""
         """get key of the form <obj class name>.id"""
         key = obj.__class__.__name__ + "." + str(obj.id)
-        self.__objects[key] = obj
+        FileStorage.__objects[key] = obj
 
     def save(self):
         """Save json representation of instances in a file
