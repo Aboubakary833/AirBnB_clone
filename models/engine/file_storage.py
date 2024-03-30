@@ -4,7 +4,6 @@
 import json
 
 
-
 class FileStorage:
     """FileStorage class
     """
