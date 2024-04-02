@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d03d1d84-063d-456a-b10a-f7c489475282" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/models/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/models/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/engine/file_storage.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/engine/file_storage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_models/test_file_storage.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +63,7 @@
       <updated>1711812439692</updated>
       <workItem from="1711812444453" duration="571000" />
       <workItem from="1711813150371" duration="30000" />
+      <workItem from="1712053804614" duration="15000" />
     </task>
     <servers />
   </component>

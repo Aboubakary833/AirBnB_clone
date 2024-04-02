@@ -21,23 +21,23 @@ class TestFileStorage(unittest.TestCase):
         Tests reload
         """
         self.storage.save()
-        Root = os.path.dirname(os.path.abspath("console.py"))
-        path = os.path.join(Root, "file.json")
-        with open(path, 'r') as f:
-            lines = f.readlines()
+        root = os.path.dirname(os.path.abspath("console.py"))
+        path = os.path.join(root, "file.json")
+        with open(path, 'r') as file:
+            lines = file.readlines()
         try:
             os.remove(path)
         except FileNotFoundError:
             pass
         self.storage.save()
-        with open(path, 'r') as f:
+        with open(path, 'r') as file:
             lines2 = f.readlines()
         self.assertEqual(lines, lines2)
         try:
             os.remove(path)
         except FileNotFoundError:
             pass
-        with open(path, "w") as f:
+        with open(path, "w") as file:
             f.write("{}")
         with open(path, "r") as r:
             for line in r:
